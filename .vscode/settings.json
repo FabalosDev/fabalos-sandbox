@@ -1,0 +1,29 @@
+{
+  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  "[svelte]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "beautify.ignore": ["**/*.svelte"],
+
+  "prettier.useTabs": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  "prettier.printWidth": 100,
+  "prettier.plugins": [
+    "prettier-plugin-svelte",
+    "prettier-plugin-tailwindcss"
+  ]
+}

@@ -1,44 +1,40 @@
-<section id="stack" class="section bg-background text-main">
- <div class="container">
-   <h2 class="text-3xl font-heading text-center mb-2 text-primary">What's Possible</h2>
-   <p class="text-center text-soft mb-12">Discover workflows that radically save time</p>
+<script lang="ts">
+  import {
+    Flame,
+    Wind,
+    FlaskConical,
+    Brush,
+    Rocket,
+    Github
+  } from 'lucide-svelte';
 
-   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-     <div class="rounded-2xl bg-white p-6 text-center shadow-md hover:shadow-lg transition">
-       <span class="inline-block bg-blue-100 text-blue-700 text-sm font-medium px-3 py-1 rounded-full mb-4">Report</span>
-       <h3 class="text-xl font-semibold text-primary mb-2">Generate weekly reports</h3>
-       <p class="text-soft text-sm">Automate the creation of complex reports.</p>
-     </div>
+  const stack = [
+    { label: 'SvelteKit', icon: Flame },
+    { label: 'Tailwind CSS', icon: Wind },
+    { label: 'Supabase', icon: FlaskConical },
+    { label: 'Lucide Icons', icon: Brush },
+    { label: 'Vercel', icon: Rocket },
+    { label: 'GitHub', icon: Github }
+  ];
+</script>
 
-     <div class="rounded-2xl bg-white p-6 text-center shadow-md hover:shadow-lg transition">
-       <span class="inline-block bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full mb-4">Process</span>
-       <h3 class="text-xl font-semibold text-primary mb-2">Process form submissions</h3>
-       <p class="text-soft text-sm">Handle and organize form data efficiently.</p>
-     </div>
+<section id="stack" class="py-20 px-6 sm:px-12 md:px-20 bg-background text-main">
+  <div class="max-w-4xl mx-auto space-y-10 text-center">
+    <h2 class="text-3xl sm:text-4xl font-heading font-bold text-primary">
+      The Tools We're Playing With
+    </h2>
 
-     <div class="rounded-2xl bg-white p-6 text-center shadow-md hover:shadow-lg transition">
-       <span class="inline-block bg-yellow-100 text-yellow-700 text-sm font-medium px-3 py-1 rounded-full mb-4">Notify</span>
-       <h3 class="text-xl font-semibold text-primary mb-2">Notify your users</h3>
-       <p class="text-soft text-sm">Send automated messages to your audience.</p>
-     </div>
-   </div>
- </div>
+    <p class="text-lg sm:text-xl font-body text-muted leading-relaxed">
+      Keeping it light, clean, and powerful. These are our go-to toys for building things that actually work.
+    </p>
 
- <div class="container">
-   <h2 class="text-3xl font-heading text-center mt-20 mb-8 text-primary">Tech & Tools I Use</h2>
-   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-     <div class="rounded-2xl bg-white p-6 text-center shadow-md hover:shadow-lg transition">
-       <h3 class="text-xl font-semibold text-primary mb-2">Make.com</h3>
-       <p class="text-soft text-sm mt-2">Visual builder with powerful integrations.</p>
-     </div>
-     <div class="rounded-2xl bg-white p-6 text-center shadow-md hover:shadow-lg transition">
-       <h3 class="text-xl font-semibold text-primary mb-2">GPT</h3>
-       <p class="text-soft text-sm mt-2">Context-aware tagging and data generation.</p>
-     </div>
-     <div class="rounded-2xl bg-white p-6 text-center shadow-md hover:shadow-lg transition">
-       <h3 class="text-xl font-semibold text-primary mb-2">n8n</h3>
-       <p class="text-soft text-sm mt-2">Self-hosted flows for secure automation pipelines.</p>
-     </div>
-   </div>
- </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center text-lg font-body text-muted">
+      {#each stack as tech}
+        <div class="flex items-center gap-3 hover:text-primary transition">
+          <svelte:component this={tech.icon} class="w-5 h-5" />
+          <span>{tech.label}</span>
+        </div>
+      {/each}
+    </div>
+  </div>
 </section>

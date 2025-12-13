@@ -1,41 +1,20 @@
-<section id="hero" class="section bg-background text-main">
-  <div class="container grid md:grid-cols-2 items-center gap-12">
-    
-    <!-- 🔹 Left Column -->
-    <div class="space-y-6">
-      <h1 class="text-4xl md:text-6xl font-heading text-primary leading-tight">
-        <span class="font-bold block md:inline">Automate with</span>
-        <span class="text-soft font-bold">Fabalos</span>
-      </h1>
+<script lang="ts">
+  const greeting = "Hey Frank, welcome back to the lab.";
+  const subtext = "Build. Break. Experiment. Just don’t forget to sleep.";
+</script>
 
-      <h2 class="text-xl md:text-2xl text-soft font-semibold">
-        Automation Architect
-      </h2>
-
-      <p class="text-lg leading-relaxed">
-        I build resilient automation systems using <strong>Make.com</strong>, <strong>GPT</strong>, and <strong>n8n</strong> — 
-        streamlining chaos into beautifully efficient workflows. Whether it’s product tagging, workflow ops, or system design, 
-        this is <span class="text-primary font-semibold">Fabalos Automation</span>.
-      </p>
-
-      <!-- 🔹 CTA Buttons -->
-      <div class="flex flex-wrap gap-4">
-        <a href="#case-study" class="btn-solid">
-          <span>See My Automations</span>
-        </a>
-        <a href="mailto:hello@fabalos.com" class="btn-primary">
-          <span>Let’s Talk</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- 🔸 Right Column: Logo -->
-    <div class="flex justify-center md:justify-end">
-      <img
-        src="/logos/fabalos-logo-2k.png"
-        alt="Fabalos Logo"
-        class="w-full max-w-[320px] md:max-w-[400px] h-auto"
-      />
+<section class="relative h-[calc(100vh-80px)] flex items-center justify-center text-center px-6">
+  <div class="space-y-4">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-heading text-foreground font-bold leading-tight drop-shadow-md">
+      {greeting}
+    </h1>
+    <p class="text-muted text-lg md:text-xl max-w-2xl mx-auto font-body">
+      {subtext}
+    </p>
+    <div class="pt-4">
+      <a href="/login" class="inline-block bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition-all duration-300 font-medium">
+        Enter the Sandbox
+      </a>
     </div>
   </div>
 </section>

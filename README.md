@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-blueviolet" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.1.0-blueviolet" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-purple" alt="License">
   <img src="https://img.shields.io/badge/built_with-SvelteKit-orange" alt="Built with SvelteKit">
   <img src="https://img.shields.io/badge/styling-TailwindCSS%20v4.1-blue" alt="Tailwind CSS">
@@ -7,63 +7,73 @@
   <img src="https://img.shields.io/badge/foxified-yes-ff69b4" alt="Foxified">
 </p>
 
-# Fabalos.com
+# 🧪 Welcome to Fabalos Sandbox
 
-**Professional landing page and automation portfolio built with SvelteKit + TailwindCSS.**
+**Fabalos Sandbox** is an internal build environment for experiments, systems, and workflows under the Fabalos ecosystem.
 
-This is the official website of Fabalos — a mechatronics engineer turned digital systems architect. This site showcases automation case studies, tools, and strategic services with a clean, modular design.
-
----
-
-## 🚀 Overview
-
-- Automation-first personal brand
-- Tagging case study (Make + GPT + Sheets)
-- Modular, scrollable layout
-- Professional presence built with intentional flow
+This repository is **not a polished product**, **not a template**, and **not a public-facing portfolio**.
+It is a working sandbox where ideas are tested, broken, rebuilt, and validated.
 
 ---
 
-## 🛠 Stack
+## 🧠 Purpose
 
-- SvelteKit
-- TailwindCSS
-- GPT + Make.com integrations (case study)
-- Obsidian + Notion for backend notes
+This sandbox exists to:
 
----
+- Prototype dashboards, forms, and internal tools
+- Test Supabase schemas, auth flows, and CRUD logic
+- Build and refine blog, case study, and content systems
+- Experiment with SvelteKit + Tailwind v4 architecture
+- Validate ideas **before** extracting them into clean, reusable projects
 
-## 🧱 Pages
-
-| Route         | Description                               |
-|---------------|-------------------------------------------|
-| `/`           | Main landing page (what I do + CTA)       |
-| `/case-study` | Deep dive into Make/GPT product tagging   |
-| `+`           | Future tools page, blog, lore zone        |
+If something looks unfinished or inconsistent — that’s intentional.
 
 ---
 
-## 🧠 Philosophy
+## 🛠 Tech Stack
 
-Fabalos.com is a space where clarity meets capability — automation is not just about saving time, it's about aligning energy and structure for creative flow.
-
----
-
-## 🔖 Versioning Strategy
-
-This project follows [Semantic Versioning](https://semver.org/):
-- `0.x.x` – Development / pre-release
-- `1.0.0` – Initial public launch
-- `x.y.z` - Subsequent updates (patches, features, or breaking changes)
-- Patch versions (`1.0.1`, etc.) for minor updates and fixes
+- **SvelteKit**
+- **Tailwind CSS v4 (CSS-first architecture)**
+- **Supabase (Postgres, Auth, Storage)**
+- **Vite**
+- **TypeScript**
 
 ---
 
-For full update history, see [CHANGELOG.md](./CHANGELOG.md).
+## ⚠️ Project Status
+
+- 🚧 Active development
+- 🔁 Refactors are normal
+- 💥 Breaking changes are expected
+- 🧹 Cleanup happens *after* validation, not before
+
+This repo prioritizes **progress over polish**.
 
 ---
 
-## 📄 License
+## 🚀 Deployment Notes
 
-MIT  
-Use freely, credit appreciated.
+- Environment variables are required (`.env`)
+- Supabase schema must match expected fields
+- This repo may deploy at any point, even if features are incomplete
+
+---
+
+## 📂 Structure Notes
+
+- `(secure)/` routes are protected/internal
+- Blog and Case Study systems are under active iteration
+- UI consistency comes *after* data + logic stability
+
+---
+
+## 🧭 Philosophy
+
+> Build first. Clean later.
+> Validate reality before aesthetics.
+
+---
+
+## 📌 License
+
+Private / Internal use under the Fabalos ecosystem.

@@ -1,25 +1,39 @@
-@theme {
-  --primary: #3b82f6;
-  --accent: #10b981;
-  --warning: #fbbf24;
-  --error: #ef4444;
-  --background: #f3f4f6;
-  --surface: #1e293b;
-  --text-main: #1a202c;
-  --text-soft: #64748b;
+/* ===================== theme.css ===================== */
 
-  --font-heading: 'Manrope', sans-serif;
-  --font-body: 'Inter', 'Open Sans', ui-sans-serif, system-ui, sans-serif;
-}
+@layer base {
+  @theme {
+    /* 🎨 Core Palette */
+    --primary: #3b82f6;
+    --accent: #10b981;
+    --warning: #fbbf24;
+    --error: #ef4444;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text-main: #f1f5f9;
+    --text-soft: #94a3b8;
 
-html {
-  font-family: var(--font-body);
-}
-body {
-  background-color: var(--background);
-  color: var(--text-main);
-}
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  color: var(--primary);
+    /* 🦊 Extras */
+    --foxther-glow: #3b82f6;
+    --button-glow: #2563eb;
+
+    /* ✨ Fonts */
+    --font-heading: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+    --font-alt: 'JetBrains Mono', monospace;
+    --font-display: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    font-family: var(--font-body);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-main);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary);
+  }
 }

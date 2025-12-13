@@ -1,39 +1,35 @@
 <script lang="ts">
   import '$styles/global.css';
   import '$styles/app.css';
-  // If Header component isn't strictly necessary for this layout file,
-  // consider moving it to specific pages/components where it's used.
-  // import Header from '$lib/components/Header.svelte';
 </script>
 
 <svelte:head>
-  <title>Fabalos Automation — Smart Systems, Seamless Flows</title>
-  <meta name="description" content="Fabalos Automation builds resilient workflows with Make.com, GPT, and n8n. Turn chaos into scalable systems with soul." />
-  <meta name="keywords" content="automation, make.com, GPT, n8n, workflow automation, product tagging, systems design, Fabalos Automation, AI workflow" />
-  <meta name="author" content="Fabalos" />
+  <!-- 🌐 SEO Metadata -->
+  <title>Foxther Dev Lab — Experimental Sandbox</title>
+  <meta name="description" content="Foxther Dev Lab is Frank's private sandbox for stealth tools, automation, and AI integrations using GPT, n8n, and SvelteKit." />
+  <meta name="keywords" content="foxther, fabaverse, gpt, n8n, sveltekit, automation, internal tools, ai" />
+  <meta name="author" content="Frank (Foxther Verified)" />
 
+  <!-- 📣 Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fabalos.com" />
-  <meta property="og:title" content="Fabalos Automation — Smart Systems, Seamless Flows" />
-  <meta property="og:description" content="I build resilient systems using Make, GPT, and n8n. Automation with clarity, purpose, and soul." />
-  <meta property="og:image" content="https://fabalos.com/og-image.png" />
+  <meta property="og:url" content="https://sandbox.fabalos.com" />
+  <meta property="og:title" content="Foxther Dev Lab — Experimental Sandbox" />
+  <meta property="og:description" content="Explore automation workflows, test GPT tools, and prototype internal systems in Foxther’s verified playground." />
+  <meta property="og:image" content="https://sandbox.fabalos.com/og-sandbox.png" />
 
+  <!-- 🐦 Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://fabalos.com" />
-  <meta name="twitter:title" content="Fabalos Automation — Smart Systems, Seamless Flows" />
-  <meta name="twitter:description" content="I build resilient systems using Make, GPT, and n8n. Automation with clarity, purpose, and soul." />
-  <meta name="twitter:image" content="https://fabalos.com/og-image.png" />
+  <meta name="twitter:url" content="https://sandbox.fabalos.com" />
+  <meta name="twitter:title" content="Foxther Dev Lab — Experimental Sandbox" />
+  <meta name="twitter:description" content="Explore automation workflows, test GPT tools, and prototype internal systems in Foxther’s verified playground." />
+  <meta name="twitter:image" content="https://sandbox.fabalos.com/og-sandbox.png" />
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0F172A" />
-
-  <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/512x512.png">
+  <!-- 🔖 Favicon & Theme -->
+  <link rel="icon" href="/foxther.png" type="image/png" />
+  <meta name="theme-color" content="#0B1120" />
 </svelte:head>
 
-<div class="min-h-screen text-main font-sans" style="background-color: var(--background);">
+<!-- 🌌 Global Layout Shell -->
+<div class="min-h-screen text-main font-sans bg-[var(--background)]">
   <slot />
 </div>
