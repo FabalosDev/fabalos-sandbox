@@ -7,73 +7,36 @@
   <img src="https://img.shields.io/badge/foxified-yes-ff69b4" alt="Foxified">
 </p>
 
-# 🧪 Welcome to Fabalos Sandbox
+# 🧪 Fabalos Sandbox
 
-**Fabalos Sandbox** is an internal build environment for experiments, systems, and workflows under the Fabalos ecosystem.
+Welcome to **Fabalos Sandbox** — the experimental workspace for building, testing, and evolving
+automation systems, dashboards, and content tools under the Fabalos ecosystem.
 
-This repository is **not a polished product**, **not a template**, and **not a public-facing portfolio**.
-It is a working sandbox where ideas are tested, broken, rebuilt, and validated.
+This repository is intentionally **messy, flexible, and fast-moving**.
 
----
+## What lives here
 
-## 🧠 Purpose
+- 📝 Blog system (create / edit / view)
+- 📚 Case study system
+- 🔐 Secure dashboard routes
+- 🧩 Supabase-backed CMS logic
+- 🧠 UI + automation experiments
 
-This sandbox exists to:
+This is **not** a polished marketing site.
+This is where things are proven before being extracted.
 
-- Prototype dashboards, forms, and internal tools
-- Test Supabase schemas, auth flows, and CRUD logic
-- Build and refine blog, case study, and content systems
-- Experiment with SvelteKit + Tailwind v4 architecture
-- Validate ideas **before** extracting them into clean, reusable projects
+## Philosophy
 
-If something looks unfinished or inconsistent — that’s intentional.
+- Build first
+- Stabilize later
+- Extract only what survives real use
 
----
+## Status
 
-## 🛠 Tech Stack
-
-- **SvelteKit**
-- **Tailwind CSS v4 (CSS-first architecture)**
-- **Supabase (Postgres, Auth, Storage)**
-- **Vite**
-- **TypeScript**
-
----
-
-## ⚠️ Project Status
-
-- 🚧 Active development
-- 🔁 Refactors are normal
-- 💥 Breaking changes are expected
-- 🧹 Cleanup happens *after* validation, not before
-
-This repo prioritizes **progress over polish**.
+🚧 Active sandbox
+⚠️ Expect breaking changes
+✅ Deployable, but not frozen
 
 ---
 
-## 🚀 Deployment Notes
-
-- Environment variables are required (`.env`)
-- Supabase schema must match expected fields
-- This repo may deploy at any point, even if features are incomplete
-
----
-
-## 📂 Structure Notes
-
-- `(secure)/` routes are protected/internal
-- Blog and Case Study systems are under active iteration
-- UI consistency comes *after* data + logic stability
-
----
-
-## 🧭 Philosophy
-
-> Build first. Clean later.
-> Validate reality before aesthetics.
-
----
-
-## 📌 License
-
-Private / Internal use under the Fabalos ecosystem.
+Part of the **Fabaverse**.
