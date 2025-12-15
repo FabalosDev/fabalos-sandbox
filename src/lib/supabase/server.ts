@@ -1,11 +1,12 @@
 import { createServerClient } from '@supabase/ssr';
-import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 
-export const supabaseServer = (event) =>
-	createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
+export const supabaseServer = (event) => {
+	return createServerClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY, {
 		cookies: {
 			get: (key) => event.cookies.get(key),
-			set: (key, val, opts) => event.cookies.set(key, val, { path: '/', ...opts }),
-			remove: (key, opts) => event.cookies.delete(key, { path: '/', ...opts })
+			set: (key, value, options) => event.cookies.set(key, value, { path: '/', ...options }),
+			remove: (key, options) => event.cookies.delete(key, { path: '/', ...options })
 		}
 	});
+};
