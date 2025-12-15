@@ -1,11 +1,5 @@
 <script lang="ts">
-	import { supabase } from '$lib/supabase/client';
-	import { goto } from '$app/navigation';
-
-	const logout = async () => {
-		await supabase.auth.signOut();
-		goto('/login');
-	};
+	// No Supabase here. No client auth.
 </script>
 
 <header class="flex items-center justify-between bg-gray-900 p-4 text-white shadow-md">
@@ -17,9 +11,10 @@
 			<span class="rounded bg-orange-600 px-3 py-1 text-xs text-white"> SANDBOX </span>
 		{/if}
 
-		<button on:click={logout} class="rounded bg-red-600 px-4 py-2 hover:bg-red-700">
-			Logout
-		</button>
+		<!-- SERVER-ONLY LOGOUT -->
+		<form method="POST" action="/logout">
+			<button type="submit" class="rounded bg-red-600 px-4 py-2 hover:bg-red-700"> Logout </button>
+		</form>
 	</div>
 </header>
 
