@@ -46,6 +46,9 @@
     @apply rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700;
   }
 
+  .btn-green {
+    @apply rounded-lg bg-green-600 px-4 py-2 text-white hover:bg-green-700;
+  }
   .input,
   .textarea {
     @apply w-full rounded-lg border border-blue-800/40 bg-blue-900/20 px-3 py-2 text-gray-200;

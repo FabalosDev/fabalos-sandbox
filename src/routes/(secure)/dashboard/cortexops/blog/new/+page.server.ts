@@ -6,10 +6,25 @@ export const actions = {
 		const supabase = supabaseServer(event);
 		const form = await event.request.formData();
 
+		const category = form.get('category');
+		if (!category) {
+			throw error(400, 'Category is required');
+		}
+
+		const tagsRaw = form.get('tags') as string;
+
 		const { error: insertError } = await supabase.from('blog_posts').insert({
 			title: form.get('title'),
 			slug: form.get('slug'),
 			summary: form.get('summary'),
+			category,
+			tags: tagsRaw
+				? tagsRaw
+						.split(',')
+						.map((t) => t.trim())
+						.filter(Boolean)
+				: [],
+			status: form.get('status') ?? 'draft',
 			thumbnail: form.get('thumbnail'),
 			heroImage: form.get('heroImage'),
 			sections: JSON.parse(form.get('sections') as string),
@@ -20,7 +35,6 @@ export const actions = {
 			throw error(500, insertError.message);
 		}
 
-		// balik sa list
 		throw redirect(303, '/dashboard/cortexops/blog');
 	}
 };

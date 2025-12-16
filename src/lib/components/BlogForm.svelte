@@ -8,6 +8,11 @@
 	let heroImage = blog?.heroImage ?? '';
 	let footerNote = blog?.footerNote ?? '';
 
+	// NEW
+	let category = blog?.category ?? '';
+	let tags = blog?.tags?.join(', ') ?? '';
+	let status = blog?.status ?? 'draft';
+
 	let sections = structuredClone(blog?.sections ?? [{ image: '', body: [''] }]);
 
 	function addSection() {
@@ -24,6 +29,19 @@
 
 	<input class="input" name="title" bind:value={title} placeholder="Title" />
 	<input class="input" name="slug" bind:value={slug} placeholder="Slug" />
+
+	<!-- NEW -->
+	<input class="input" name="category" bind:value={category} placeholder="Category (required)" />
+
+	<!-- NEW -->
+	<input class="input" name="tags" bind:value={tags} placeholder="Tags (comma-separated)" />
+
+	<!-- NEW -->
+	<select class="input" name="status" bind:value={status}>
+		<option value="draft">Draft</option>
+		<option value="published">Published</option>
+	</select>
+
 	<input class="input" name="summary" bind:value={summary} placeholder="Short Summary" />
 	<input class="input" name="thumbnail" bind:value={thumbnail} placeholder="Thumbnail URL" />
 	<input class="input" name="heroImage" bind:value={heroImage} placeholder="Hero Image URL" />
@@ -55,7 +73,6 @@
 
 	<div class="flex gap-3">
 		<button type="button" class="btn" on:click={addSection}> Add Section </button>
-
 		<button type="submit" class="btn-green"> Save </button>
 	</div>
 </form>

@@ -6,7 +6,7 @@
 <h1 class="text-3xl font-bold text-blue-300">{cs.title}</h1>
 
 {#if cs.hero_image}
-	<img src={cs.hero_image} class="my-6 rounded-xl" />
+	<img src={cs.hero_image} alt={cs.title} class="my-6 rounded-xl" />
 {/if}
 
 <!-- SUMMARY PANELS -->
@@ -35,7 +35,7 @@
 				<h3 class="text-lg font-semibold text-blue-300">{sec.title}</h3>
 
 				{#if sec.image}
-					<img src={sec.image} class="rounded-lg" />
+					<img src={sec.image} alt={sec.title || cs.title} class="rounded-lg" />
 				{/if}
 
 				{#each sec.body as p}

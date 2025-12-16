@@ -24,15 +24,31 @@ export const actions = {
 		const form = await event.request.formData();
 		const { slug } = event.params;
 
+		const category = form.get('category');
+		if (!category) {
+			throw error(400, 'Category is required');
+		}
+
+		const tagsRaw = form.get('tags') as string;
+
 		const { error: updateError } = await supabase
 			.from('blog_posts')
 			.update({
 				title: form.get('title'),
 				summary: form.get('summary'),
+				category,
+				tags: tagsRaw
+					? tagsRaw
+							.split(',')
+							.map((t) => t.trim())
+							.filter(Boolean)
+					: [],
+				status: form.get('status') ?? 'draft',
 				thumbnail: form.get('thumbnail'),
 				heroImage: form.get('heroImage'),
 				sections: JSON.parse(form.get('sections') as string),
-				footerNote: form.get('footerNote')
+				footerNote: form.get('footerNote'),
+				updated_at: new Date().toISOString()
 			})
 			.eq('slug', slug);
 
@@ -40,7 +56,6 @@ export const actions = {
 			throw error(500, updateError.message);
 		}
 
-		// ✅ balik sa blog list
 		throw redirect(303, '/dashboard/cortexops/blog');
 	}
 };
