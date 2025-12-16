@@ -19,11 +19,6 @@
 			name: 'New Case Study',
 			url: '/dashboard/cortexops/case/new',
 			desc: 'Add a new structured case study entry.'
-		},
-		{
-			name: 'Draft Manager',
-			url: '#',
-			desc: 'Work-in-progress content, unpublished drafts. (Soon)'
 		}
 	];
 </script>

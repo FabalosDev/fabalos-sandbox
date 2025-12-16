@@ -11,11 +11,25 @@
 		{#each data.posts as post}
 			<a
 				href={`/dashboard/cortexops/blog/${post.slug}`}
-				class="block rounded-lg border border-blue-800/40 bg-blue-900/20 p-4 hover:bg-blue-900/30"
+				class="block rounded-lg border p-4 transition
+      {post.status === 'published'
+					? 'border-green-500/40 bg-green-500/10'
+					: 'border-blue-800/40 bg-blue-900/20 opacity-70'}"
 			>
-				<h2 class="mb-1 text-lg font-semibold text-blue-300">
-					{post.title}
-				</h2>
+				<div class="mb-1 flex items-center justify-between">
+					<h2 class="text-lg font-semibold text-blue-300">
+						{post.title}
+					</h2>
+
+					<span
+						class="rounded-full px-2 py-0.5 text-xs font-semibold uppercase
+          {post.status === 'published'
+							? 'bg-green-500/20 text-green-400'
+							: 'bg-gray-500/20 text-gray-400'}"
+					>
+						{post.status}
+					</span>
+				</div>
 
 				<p class="line-clamp-2 text-sm text-gray-400">
 					{post.summary}

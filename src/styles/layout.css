@@ -105,3 +105,41 @@
     margin: 1rem 0;
   }
 }
+
+/* ===================== BLOG / CASE CARD STATES ===================== */
+
+.blog-card,
+.case-card {
+  display: block;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(30, 64, 175, 0.4);
+  background: rgba(30, 64, 175, 0.2);
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.blog-card:hover,
+.case-card:hover {
+  background: rgba(30, 64, 175, 0.3);
+}
+
+/* Draft state */
+.is-draft {
+  opacity: 0.45;
+}
+
+.is-draft:hover {
+  opacity: 0.6;
+}
+
+/* Draft badge */
+.draft-pill {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
