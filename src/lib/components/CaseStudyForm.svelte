@@ -7,6 +7,7 @@
 	   1. NORMALIZE INPUT
 	---------------------------- */
 	const defaults = {
+		status: 'draft',
 		title: '',
 		slug: '',
 		shortSummary: '',
@@ -92,6 +93,12 @@
 
 <!-- TAGS / TOOLS -->
 <input class="input" name="tags" bind:value={tagsInput} placeholder="Tags (comma-separated)" />
+
+<!-- STATUS -->
+<select class="input" name="status" bind:value={value.status}>
+	<option value="draft">Draft</option>
+	<option value="published">Published</option>
+</select>
 
 <input
 	class="input"
