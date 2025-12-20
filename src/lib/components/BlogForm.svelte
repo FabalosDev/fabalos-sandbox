@@ -16,14 +16,19 @@
 	let tags = blog?.tags?.join(', ') ?? '';
 	let status = blog?.status ?? 'draft';
 
-	let sections = structuredClone(blog?.sections ?? [{ image: '', body: [''] }]);
+	let sections = structuredClone(blog?.sections ?? [{ title: '', image: '', body: [''] }]);
 
 	function addSection() {
-		sections = [...sections, { image: '', body: [''] }];
+		sections = [...sections, { title: '', image: '', body: [''] }];
 	}
 
 	function addParagraph(i) {
 		sections = sections.map((sec, idx) => (idx === i ? { ...sec, body: [...sec.body, ''] } : sec));
+	}
+
+	function removeSection(i) {
+		if (sections.length === 1) return; // guard: always keep one section
+		sections = sections.filter((_, idx) => idx !== i);
 	}
 </script>
 
@@ -77,6 +82,8 @@
 
 	{#each sections as sec, i}
 		<div class="space-y-3 rounded border p-4">
+			<input class="input" bind:value={sections[i].title} placeholder="Section Title (optional)" />
+
 			<input class="input" bind:value={sec.image} placeholder="Section Image URL" />
 
 			{#each sec.body as _, p}
@@ -87,7 +94,16 @@
 				></textarea>
 			{/each}
 
-			<button type="button" class="btn-sm" on:click={() => addParagraph(i)}> + Paragraph </button>
+			<button type="button" class="btn" on:click={() => addParagraph(i)}> + Paragraph </button>
+
+			<button
+				type="button"
+				class="btn btn-danger"
+				on:click={() => removeSection(i)}
+				disabled={sections.length === 1}
+			>
+				Remove Section
+			</button>
 		</div>
 	{/each}
 
