@@ -28,8 +28,13 @@ export const actions = {
 			thumbnail: form.get('thumbnail'),
 			heroImage: form.get('heroImage'),
 			sections: JSON.parse(form.get('sections') as string),
-			footerNote: form.get('footerNote')
-		});
+			footerNote: form.get('footerNote'),
+			seo: {
+				title: form.get('seoTitle') || form.get('title'),
+				description: form.get('seoDescription') || form.get('summary'),
+				ogImage: form.get('seoOgImage') || form.get('heroImage')
+			}
+		}); // ✅ THIS was missing
 
 		if (insertError) {
 			throw error(500, insertError.message);

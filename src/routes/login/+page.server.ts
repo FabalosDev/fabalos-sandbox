@@ -1,20 +1,13 @@
 import { redirect, fail } from '@sveltejs/kit';
-import { createServerClient } from '@supabase/ssr';
-import { env } from '$env/dynamic/public';
+import { supabaseServer } from '$lib/supabase/server';
 
 export const actions = {
-	default: async ({ request, cookies }) => {
-		const data = await request.formData();
-		const email = data.get('email');
-		const password = data.get('password');
+	default: async (event) => {
+		const supabase = supabaseServer(event);
+		const data = await event.request.formData();
 
-		const supabase = createServerClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY, {
-			cookies: {
-				get: (key) => cookies.get(key),
-				set: (key, value, options) => cookies.set(key, value, { path: '/', ...options }),
-				remove: (key, options) => cookies.delete(key, { path: '/', ...options })
-			}
-		});
+		const email = String(data.get('email'));
+		const password = String(data.get('password'));
 
 		const { error } = await supabase.auth.signInWithPassword({
 			email,
@@ -25,6 +18,7 @@ export const actions = {
 			return fail(400, { error: error.message });
 		}
 
+		// ✅ Supabase cookies are finalized BEFORE redirect
 		throw redirect(303, '/dashboard');
 	}
 };

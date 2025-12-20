@@ -3,6 +3,20 @@
 	const { post } = data;
 </script>
 
+<svelte:head>
+	<title>{post.seo?.title ?? post.title}</title>
+
+	<meta name="description" content={post.seo?.description ?? post.summary} />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={post.seo?.title ?? post.title} />
+	<meta property="og:description" content={post.seo?.description ?? post.summary} />
+	<meta property="og:image" content={post.seo?.ogImage ?? post.heroImage} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+</svelte:head>
+
 <div class="container mx-auto max-w-4xl px-4">
 	<!-- HEADER -->
 	<div class="mb-10 flex items-start justify-between gap-6">

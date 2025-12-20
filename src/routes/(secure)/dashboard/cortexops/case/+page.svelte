@@ -2,6 +2,23 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Case Studies · Fabalos Automation</title>
+
+	<meta
+		name="description"
+		content="Real-world automation case studies showing how systems are designed, built, and scaled using n8n, APIs, and structured workflows."
+	/>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Automation Case Studies · Fabalos Automation" />
+	<meta
+		property="og:description"
+		content="Explore real automation projects covering editorial systems, operations workflows, and scalable integrations."
+	/>
+	<meta property="og:type" content="website" />
+</svelte:head>
+
 <div class="container py-8">
 	<h1 class="mb-6 text-3xl font-bold text-blue-300">Case Studies</h1>
 

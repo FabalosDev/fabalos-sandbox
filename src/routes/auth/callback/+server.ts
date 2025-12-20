@@ -1,28 +1,12 @@
 import { json } from '@sveltejs/kit';
-import { createServerClient } from '@supabase/ssr';
-import { env } from '$env/dynamic/public';
+import { supabaseServer } from '$lib/supabase/server';
 
-export async function POST({ request, cookies }) {
-	const { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } = env;
+export async function POST(event) {
+	const supabase = supabaseServer(event);
+	const body = await event.request.json();
 
-	const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-		cookies: {
-			get(key) {
-				return cookies.get(key);
-			},
-			set(key, value, options) {
-				cookies.set(key, value, { path: '/', ...options });
-			},
-			remove(key, options) {
-				cookies.delete(key, { path: '/', ...options });
-			}
-		}
-	});
-
-	const { event, session } = await request.json();
-
-	if (event === 'SIGNED_IN') {
-		await supabase.auth.setSession(session);
+	if (body?.event === 'SIGNED_IN' && body?.session) {
+		await supabase.auth.setSession(body.session);
 	}
 
 	return json({ success: true });

@@ -2,6 +2,23 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Blog · Fabalos Automation</title>
+
+	<meta
+		name="description"
+		content="Insights on digital automation, workflow design, and system thinking—covering real-world use cases, tooling, and automation strategy."
+	/>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Automation Blog · Fabalos Automation" />
+	<meta
+		property="og:description"
+		content="Articles and insights on building reliable automation systems using workflows, APIs, and modern tools."
+	/>
+	<meta property="og:type" content="website" />
+</svelte:head>
+
 <div class="container">
 	<h1 class="mb-6 text-3xl font-bold text-blue-300">Blog Posts</h1>
 

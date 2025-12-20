@@ -48,7 +48,12 @@ export const actions = {
 				heroImage: form.get('heroImage'),
 				sections: JSON.parse(form.get('sections') as string),
 				footerNote: form.get('footerNote'),
-				updated_at: new Date().toISOString()
+				updated_at: new Date().toISOString(),
+				seo: {
+					title: form.get('seoTitle') || form.get('title'),
+					description: form.get('seoDescription') || form.get('summary'),
+					ogImage: form.get('seoOgImage') || form.get('heroImage')
+				}
 			})
 			.eq('slug', slug);
 

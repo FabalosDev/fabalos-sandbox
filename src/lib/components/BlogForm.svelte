@@ -7,6 +7,9 @@
 	let thumbnail = blog?.thumbnail ?? '';
 	let heroImage = blog?.heroImage ?? '';
 	let footerNote = blog?.footerNote ?? '';
+	let seoTitle = blog.seo?.title ?? '';
+	let seoDescription = blog.seo?.description ?? '';
+	let seoOgImage = blog.seo?.ogImage ?? '';
 
 	// NEW
 	let category = blog?.category ?? '';
@@ -45,6 +48,30 @@
 	<input class="input" name="summary" bind:value={summary} placeholder="Short Summary" />
 	<input class="input" name="thumbnail" bind:value={thumbnail} placeholder="Thumbnail URL" />
 	<input class="input" name="heroImage" bind:value={heroImage} placeholder="Hero Image URL" />
+
+	<!-- SEO -->
+	<h2 class="mt-8 text-xl text-blue-300">SEO</h2>
+
+	<input
+		class="input"
+		name="seoTitle"
+		bind:value={seoTitle}
+		placeholder="SEO Title (defaults to post title)"
+	/>
+
+	<textarea
+		class="textarea"
+		name="seoDescription"
+		bind:value={seoDescription}
+		placeholder="SEO Description (defaults to summary)"
+	></textarea>
+
+	<input
+		class="input"
+		name="seoOgImage"
+		bind:value={seoOgImage}
+		placeholder="OG Image URL (defaults to hero image)"
+	/>
 
 	<h2 class="text-xl text-blue-300">Sections</h2>
 

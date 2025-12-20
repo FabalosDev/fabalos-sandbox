@@ -3,7 +3,7 @@ import { supabaseServer } from '$lib/supabase/server';
 
 export const load = async (event) => {
 	const supabase = supabaseServer(event);
-	const { slug } = event.params; // ✅ FIX
+	const { slug } = event.params;
 
 	const { data, error: dbError } = await supabase
 		.from('case_studies')
@@ -15,58 +15,40 @@ export const load = async (event) => {
 		throw error(404, 'Case study not found');
 	}
 
-	return { case: data };
+	return { caseStudy: data };
 };
 
 export const actions = {
 	save: async (event) => {
 		const supabase = supabaseServer(event);
-		const { slug } = event.params; // ✅ ALSO FIX
+		const { slug } = event.params;
 		const form = await event.request.formData();
 
+		// ✅ ONE sections mapping ONLY
+		const sections = JSON.parse(String(form.get('sections') ?? '[]')).map((s) => ({
+			title: s?.title ?? '',
+			image: s?.image ?? '',
+			body: Array.isArray(s?.body) ? s.body.filter(Boolean) : []
+		}));
+
 		const payload = {
-			title: form.get('title'),
-			thumbnail: form.get('thumbnail'),
-			hero_image: form.get('hero_image'),
+			title: String(form.get('title') ?? ''),
+			short_summary: String(form.get('shortSummary') ?? ''),
+			summary: String(form.get('summary') ?? ''),
+			problem: String(form.get('problem') ?? ''),
+			solution: String(form.get('solution') ?? ''),
+			result: String(form.get('result') ?? ''),
+			thumbnail: String(form.get('thumbnail') ?? ''),
+			hero_image: String(form.get('hero_image') ?? ''),
+			status: String(form.get('status') ?? 'draft'),
 
-			summary: {
-				problem: form.get('problemSummary'),
-				solution: form.get('solutionSummary'),
-				result: form.get('resultSummary')
-			},
-
-			tags: ((form.get('tags') as string) || '')
-				.split(',')
-				.map((t) => t.trim())
-				.filter(Boolean),
-
-			tools: ((form.get('tools') as string) || '')
-				.split(',')
-				.map((t) => t.trim())
-				.filter(Boolean),
-
-			seo: {
-				title: form.get('seoTitle'),
-				description: form.get('seoDescription'),
-				ogImage: form.get('seoOgImage')
-			},
-
-			sections: JSON.parse(form.get('sections') as string).map((s) => ({
-				title: s.title,
-				image: s.image,
-				paragraphs: s.body.filter(Boolean)
-			}))
+			// ✅ THIS WAS MISSING
+			sections
 		};
 
-		const { error: updateError } = await supabase
-			.from('case_studies')
-			.update(payload)
-			.eq('slug', slug);
+		const { error } = await supabase.from('case_studies').update(payload).eq('slug', slug);
 
-		if (updateError) {
-			console.error(updateError);
-			return fail(500, { message: updateError.message });
-		}
+		if (error) return fail(500, { message: error.message });
 
 		throw redirect(303, '/dashboard/cortexops/case');
 	}

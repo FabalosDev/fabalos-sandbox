@@ -1,22 +1,9 @@
 import { redirect } from '@sveltejs/kit';
-import { createServerClient } from '@supabase/ssr';
 import type { LayoutServerLoad } from './$types';
-import { env } from '$env/dynamic/public';
+import { supabaseServer } from '$lib/supabase/server';
 
-export const load: LayoutServerLoad = async ({ cookies }) => {
-	const supabase = createServerClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY, {
-		cookies: {
-			get(key) {
-				return cookies.get(key);
-			},
-			set(key, value, options) {
-				cookies.set(key, value, { path: '/', ...options });
-			},
-			remove(key, options) {
-				cookies.delete(key, { path: '/', ...options });
-			}
-		}
-	});
+export const load: LayoutServerLoad = async (event) => {
+	const supabase = supabaseServer(event);
 
 	const {
 		data: { user }
